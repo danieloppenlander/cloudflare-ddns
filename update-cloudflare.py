@@ -47,6 +47,7 @@ def main():
 # Get public IP
 def get_public_ip():
     public_ip_response = requests.get('https://checkip.amazonaws.com')
+
     if public_ip_response.status_code != 200:
         raise Exception(f'Could not get public IP: {public_ip_response.text}')
 
@@ -58,11 +59,12 @@ def get_first_zone_by_name(zone_name, headers):
         f'https://api.cloudflare.com/client/v4/zones?name={zone_name}&status=active',
         headers=headers
     )
+
     if zone_id_response.status_code != 200:
         raise Exception(f'Could not get zone ID: {zone_id_response.json()}')
+
     if len(zone_id_response.json()['result']) == 0:
         raise Exception(f'Zone not found: {zone_name}')
-        return False
 
     return zone_id_response.json()['result'][0]
 
@@ -72,12 +74,12 @@ def get_first_record_by_name(zone_id, name, headers):
         f'https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records?type=A&name={name}',
         headers=headers
     )
+
     if record_id_response.status_code != 200:
-        print(f'Could not get record ID: {record_id_response.json()}')
-        return False
+        raise Exception(f'Could not get record ID: {record_id_response.json()}')
+
     if len(record_id_response.json()['result']) == 0:
-        print(f'Record not found: {name}')
-        return False
+        raise Exception(f'Record not found: {name}')
 
     return record_id_response.json()['result'][0]
 
@@ -88,9 +90,9 @@ def put_record(zone_id, record_id, record, headers):
         headers=headers,
         json=record
     )
+
     if update_response.status_code != 200:
-        print(f'Could not update record: {update_response.json()}')
-        return False
+        raise Exception(f'Could not update record: {update_response.json()}')
 
 
 if __name__ == "__main__":
