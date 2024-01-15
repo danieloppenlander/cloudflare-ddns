@@ -1,6 +1,8 @@
-# Usage
+# cloudflare-ddns
 
-## Using docker-compose
+## Usage
+
+### docker-compose
 
 ```yaml
 version: "3.8"
