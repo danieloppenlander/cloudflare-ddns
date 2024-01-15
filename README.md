@@ -8,7 +8,7 @@ version: "3.8"
 services:
   cloudflare-ddns:
     container_name: cloudflare-ddns
-    image: doppenlander/cloudflare-ddns
+    image: danieloppenlander/cloudflare-ddns:latest
     restart: unless-stopped
     environment:
       - ZONE_NAME=<zone-name>
