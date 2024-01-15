@@ -28,7 +28,6 @@ def main():
 
     # Check if IP has changed
     if record['content'] == public_ip:
-        print('IP has not changed.')
         return
 
     # Create new record
@@ -42,6 +41,8 @@ def main():
 
     # Update record
     put_record(zone['id'], record['id'], new_record, auth_headers)
+
+    print(f'Updated {NAME} to {public_ip}')
 
 # Get public IP
 def get_public_ip():
