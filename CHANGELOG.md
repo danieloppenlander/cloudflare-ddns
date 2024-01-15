@@ -7,20 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.0] - 2024-01-15
+## [0.0.1] - 2024-01-15
 
 ### Added
 
 - A changelog
 - Usage information in README
 
-### Fixed
-
-
-
 ### Changed
 
 - API Key env var name
 
-### Removed
+## [0.0.0] - 2024-01-15
 
+### Added
+
+- Ability to update cloudflare A records automatically
