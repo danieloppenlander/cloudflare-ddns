@@ -9,7 +9,7 @@ def main():
     ZONE_NAME = os.getenv("ZONE_NAME")
     NAME = os.getenv("NAME")
     IS_PROXIED = os.getenv("IS_PROXIED").lower() == 'true'
-    EMAIL = os.getenv("EMAIL")
+    EMAIL = os.getenv("API_EMAIL")
     API_KEY = os.getenv("API_KEY")
 
     auth_headers = {
