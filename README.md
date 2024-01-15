@@ -1,5 +1,7 @@
 # cloudflare-ddns
 
+A simple tool to update Cloudflare DNS A records every 10 minutes with your public IP.
+
 ## Usage
 
 ### docker-compose
