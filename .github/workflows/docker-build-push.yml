@@ -1,4 +1,4 @@
-name: Build and Push Docker Image to Docker Hub
+name: Docker Build and Push
 
 on:
   release:
@@ -26,4 +26,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: danieloppenlander/cloudflare-ddns:latest,danieloppenlander/cloudflare-ddns:{{ github.event.release.name }}
+          tags: danieloppenlander/cloudflare-ddns:latest,danieloppenlander/cloudflare-ddns:${{ github.event.release.name }}
